@@ -14,6 +14,7 @@
 		9C15A222243E20DD00210C90 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C15A221243E20DD00210C90 /* GradientView.swift */; };
 		9C15A224243E4BBF00210C90 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C15A223243E4BBF00210C90 /* LoginVC.swift */; };
 		9C15A227243E4C5300210C90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C15A226243E4C5300210C90 /* Constants.swift */; };
+		9C383528243E70090032F5B4 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C383527243E70090032F5B4 /* CreateAccountVC.swift */; };
 		9C60B902243D786B00B5EA5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60B901243D786B00B5EA5B /* AppDelegate.swift */; };
 		9C60B904243D786B00B5EA5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60B903243D786B00B5EA5B /* SceneDelegate.swift */; };
 		9C60B909243D786B00B5EA5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C60B907243D786B00B5EA5B /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		9C15A221243E20DD00210C90 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		9C15A223243E4BBF00210C90 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		9C15A226243E4C5300210C90 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9C383527243E70090032F5B4 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		9C60B8FE243D786B00B5EA5B /* Smack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C60B901243D786B00B5EA5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C60B903243D786B00B5EA5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				9C15A21D243E1B8700210C90 /* ChatVC.swift */,
 				9C15A21F243E1B9A00210C90 /* ChannelVC.swift */,
 				9C15A223243E4BBF00210C90 /* LoginVC.swift */,
+				9C383527243E70090032F5B4 /* CreateAccountVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				9C15A224243E4BBF00210C90 /* LoginVC.swift in Sources */,
 				9C15A222243E20DD00210C90 /* GradientView.swift in Sources */,
 				9C60B904243D786B00B5EA5B /* SceneDelegate.swift in Sources */,
+				9C383528243E70090032F5B4 /* CreateAccountVC.swift in Sources */,
 				9C15A219243D855100210C90 /* SWRevealViewController.m in Sources */,
 				9C15A220243E1B9A00210C90 /* ChannelVC.swift in Sources */,
 				9C15A227243E4C5300210C90 /* Constants.swift in Sources */,
