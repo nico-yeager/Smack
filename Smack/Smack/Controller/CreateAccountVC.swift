@@ -17,7 +17,6 @@ class CreateAccountVC: UIViewController {
     
     @IBAction func exitTapped(_ sender: Any) {
         performSegue(withIdentifier: TO_CHANNEL, sender: self)
-
     }
     
     override func viewDidLoad() {

@@ -8,8 +8,19 @@
 
 import Foundation
 
+typealias CompletionHandler = (_ Success: Bool) -> ()
 
 //Segues
 let TO_LOGIN = "toLogin"
 let TO_CREATE_ACCOUNT = "toCreateAccount"
 let TO_CHANNEL = "unwindSegueToChannelVC"
+
+
+//User Defaults
+let LOGGED_IN_KEY = "loggedIn"
+let TOKEN_KEY = "token"
+let USER_EMAIL = "userEmail"
+
+//URL Constants
+let BASE_URL = "https://mac-chat-app-nico.herokuapp.com/v1/"
+let URL_REGISTER = "\(BASE_URL)account/register"

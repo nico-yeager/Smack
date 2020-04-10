@@ -20,6 +20,7 @@
 		9C60B909243D786B00B5EA5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C60B907243D786B00B5EA5B /* Main.storyboard */; };
 		9C60B90B243D786B00B5EA5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C60B90A243D786B00B5EA5B /* Assets.xcassets */; };
 		9C60B90E243D786B00B5EA5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C60B90C243D786B00B5EA5B /* LaunchScreen.storyboard */; };
+		9CDB28B2243FE28300601218 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDB28B1243FE28300601218 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		9C60B90A243D786B00B5EA5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C60B90D243D786B00B5EA5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C60B90F243D786B00B5EA5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CDB28B1243FE28300601218 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		9C60B900243D786B00B5EA5B /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				9CDB28B0243FE26C00601218 /* Services */,
 				9C15A225243E4C4100210C90 /* Utilities */,
 				9C15A21A243E1B4B00210C90 /* Model */,
 				9C15A21C243E1B5D00210C90 /* View */,
@@ -151,6 +154,14 @@
 				9C60B90F243D786B00B5EA5B /* Info.plist */,
 			);
 			path = Smack;
+			sourceTree = "<group>";
+		};
+		9CDB28B0243FE26C00601218 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9CDB28B1243FE28300601218 /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +287,7 @@
 				9C60B904243D786B00B5EA5B /* SceneDelegate.swift in Sources */,
 				9C383528243E70090032F5B4 /* CreateAccountVC.swift in Sources */,
 				9C15A219243D855100210C90 /* SWRevealViewController.m in Sources */,
+				9CDB28B2243FE28300601218 /* AuthService.swift in Sources */,
 				9C15A220243E1B9A00210C90 /* ChannelVC.swift in Sources */,
 				9C15A227243E4C5300210C90 /* Constants.swift in Sources */,
 			);
