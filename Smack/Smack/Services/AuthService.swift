@@ -56,8 +56,12 @@ class AuthService{
         let httpHeader = HTTPHeaders(header)
         
         AF.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: httpHeader).responseString { (response) in
+            if let err = response.error {
+                print("err \(err)")
+            }else{
             debugPrint("Response: \(response)")
             completion(true)
+            }
         }
         
     
