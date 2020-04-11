@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class AuthService{
     
@@ -33,7 +34,7 @@ class AuthService{
             defaults.set(newValue, forKey: TOKEN_KEY)
         }
     }
-
+    
     var userEmail: String {
         get {
             return defaults.value(forKey: USER_EMAIL) as! String
@@ -43,33 +44,68 @@ class AuthService{
         }
     }
     
+    
+    //register user to mac-chat-api
     func registerUser(email: String, password: String, completion: @escaping CompletionHandler){
         let lowerCaseEmail = email.lowercased()
-        let header = [
-            "Content-Type": "application/json; charset=utf-8"
-        ]
+        
         let body: [String: Any] = [
             "email": lowerCaseEmail,
             "password": password
         ]
         
-        let httpHeader = HTTPHeaders(header)
-        
-        AF.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: httpHeader).responseString { (response) in
-            if let err = response.error {
-                print("err \(err)")
-            }else{
-            debugPrint("Response: \(response)")
-            completion(true)
+        AF.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HTTPHeaders(HEADERS)).responseString { (response) in
+            
+            switch response.result {
+                
+            case .success:
+                debugPrint("Response: \(response)")
+                completion(true)
+                
+            case .failure(let value):
+                completion(false)
+                print("err: \(value)")
+                
             }
+            
         }
-        
-    
-    
     }
     
+    
+    //login user to mac-chat-api
+    func loginUser (email: String, password: String, completion: @escaping CompletionHandler){
+        let lowerCaseEmail = email.lowercased()
+        
+        let body: [String: Any] = [
+            "email": lowerCaseEmail,
+            "password": password
+        ]
+        
+        AF.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HTTPHeaders(HEADERS)).responseJSON { (response) in
+            
+            // result of AF request
+            switch response.result {
+             
+            // if request was a success, set the userEmail and authToke from the json response
+            case .success(let value):
+                let json = JSON(value)
+                self.userEmail = json["user"].stringValue
+                self.authToke = json["token"].stringValue
+                self.isLoggedIn = true
+                completion(true)
+            
+            //if request was a failure, print out the error and set the completion handler to false.
+            case .failure(let error):
+                print(error)
+                completion(false)
+            }
+        }
+    }
 }
-    
-    
-    
-    
+
+
+
+
+
+
+

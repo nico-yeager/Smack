@@ -29,11 +29,13 @@ class CreateAccountVC: UIViewController {
         AuthService.instance.registerUser(email: email, password: pass) { (success) in
             
             if success {
-                print("registered user")
+                AuthService.instance.loginUser(email: email, password: pass) { (success) in
+                    if success {
+                        print("registered and logged in", AuthService.instance.authToke)
+                    }
+                }
             }
         }
-        
-        
     }
     
     @IBAction func pickAvatarPressed(_ sender: Any) {
