@@ -101,6 +101,48 @@ class AuthService{
             }
         }
     }
+    
+    func createUser(name: String, email: String, avatarName: String, avatarColor: String, completion: @escaping CompletionHandler){
+        
+        let lowerCaseEmail = email.lowercased()
+        let body: [String: Any] = [
+            "name": name,
+            "email": lowerCaseEmail,
+            "avatarName": avatarName,
+            "avatarColor": avatarColor
+        ]
+        
+        let header = [
+            "Authorization": "Bearer \(AuthService.instance.authToke)",
+            "Content-Type": "application/json; charset=utf-8"
+        ]
+        
+        
+        AF.request(USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HTTPHeaders(header)).responseJSON { (response) in
+            
+            // result of AF request
+            switch response.result {
+             
+            // if request was a success, set the userEmail and authToke from the json response
+            case .success(let value):
+                
+                let json = JSON(value)
+                
+                UserDataService.instance.setUserData(id: json["id"].stringValue, color: json["avatarColor"].stringValue, avatarName: json["avatarName"].stringValue, email: json["email"].stringValue, name: json["name"].stringValue)
+            
+                self.isLoggedIn = true
+                completion(true)
+            
+            //if request was a failure, print out the error and set the completion handler to false.
+            case .failure(let error):
+                print(error)
+                completion(false)
+            }
+        }
+        
+    }
+    
+    
 }
 
 
