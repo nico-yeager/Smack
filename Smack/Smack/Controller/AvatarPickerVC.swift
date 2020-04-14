@@ -8,23 +8,48 @@
 
 import UIKit
 
-class AvatarPickerVC: UIViewController {
+class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
 
-    /*
-    // MARK: - Navigation
+    //Outlet
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionView.delegate = self
+        collectionView.dataSource = self
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    //switch between dark and light avatars
+    @IBAction func segmentControlChanged(_ sender: Any) {
+
+    }
+
+    
+    @IBAction func goBackTouchedUp(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 28
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath) as? AvatarCell{
+            return cell
+        } else {
+            return AvatarCell()
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
 
 }
