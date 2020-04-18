@@ -120,6 +120,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="miC-M9-Jm2" id="Frj-7y-j1q"/>
+                        <outlet property="userImg" destination="Pza-3d-MmI" id="lRc-hF-Ogc"/>
                         <segue destination="2DB-QC-SK3" kind="presentation" identifier="toLogin" modalPresentationStyle="fullScreen" id="b6e-eQ-sIM"/>
                     </connections>
                 </viewController>

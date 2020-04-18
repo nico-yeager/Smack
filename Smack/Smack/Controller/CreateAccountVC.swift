@@ -86,22 +86,25 @@ class CreateAccountVC: UIViewController {
     
     // Randomly set bg color if Generate background color is pressed
     @IBAction func pickBGColorPressed(_ sender: Any) {
-        bgColor = UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1)
+        let r = CGFloat.random(in: 0...1)
+        let b = CGFloat.random(in: 0...1)
+        let g = CGFloat.random(in: 0...1)
+        avatarColor = "[\(r), \(g), \(b), 1]"
+        bgColor = UIColor(red: r, green: b, blue: g, alpha: 1)
+        
         //animate image for .2 seconds before changing to new bgColor
         UIView.animate(withDuration: 0.2){
             self.userImg.backgroundColor = self.bgColor
         }
     }
     
-    // make input placeholder text purple, create tap gesture recognizer to close keyboard if main view is tapped
+    //called in viewDidLoad to setUp key view properties
     func setUpView(){
-        
         spinner.isHidden = true
         
+        //make input text placeholder's purplse
         userNameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
-        
         passTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
-        
         emailTxt.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
         
         
